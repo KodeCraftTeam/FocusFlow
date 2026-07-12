@@ -7,8 +7,6 @@ const pomoDots = document.getElementById('pomoDots');
 const setFocus = document.getElementById('setFocus');
 const setShort = document.getElementById('setShort');
 const setLong = document.getElementById('setLong');
-const beepBtn = document.querySelector('.beep-btn');
-
 
 let durations = { focus: 25, short: 5, long: 15 };
 let mode = 'focus';
@@ -16,12 +14,6 @@ let secondsLeft = durations.focus * 60;
 let running = false;
 let timerId = null;
 let cyclesCompleted = 0;
-
-beepBtn.addEventListener('click', () => {
-  beep();
-});
-
-
 
 pomoToggle.addEventListener('click', () => {
   running = !running;
