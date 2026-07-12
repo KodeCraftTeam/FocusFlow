@@ -1,7 +1,7 @@
 # FocusFlow
 
 App web simple de productividad: tareas del día, un "aparcadero" de ideas sueltas, y temporizador Pomodoro. Todo en HTML/CSS/JS puro, sin frameworks ni build step.
-```html
+```
 <a href="https://kodecraftteam.github.io/FocusFlow/">FocusFlow<a>
 ```
 ## Funcionalidades
