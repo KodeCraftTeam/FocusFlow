@@ -1,7 +1,9 @@
-# Aparcadero
+# FocusFlow
 
 App web simple de productividad: tareas del día, un "aparcadero" de ideas sueltas, y temporizador Pomodoro. Todo en HTML/CSS/JS puro, sin frameworks ni build step.
-
+```html
+<a href="https://kodecraftteam.github.io/FocusFlow/">FocusFlow<a>
+```
 ## Funcionalidades
 
 **Tareas** — lista de pendientes del día. Marcar como hecha, borrar, contador de pendientes.
@@ -34,8 +36,6 @@ src/
 Cada lista (tareas, aparcadero) guarda su estado en `localStorage` bajo su propia key (`tasks:items`, `aparcadero:items`). Datos persisten entre recargas, por navegador/dispositivo — no hay backend ni sincronización entre dispositivos.
 
 ## Despliegue
-
-<a href="https://kodecraftteam.github.io/FocusFlow/" target="blank" style="text-decoration: none; underline: none;" >FocusFlow<a>
 
 Pensada para GitHub Pages: sin build step, sin dependencias, sirve directo desde la raíz del repo.
 
