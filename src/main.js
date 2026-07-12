@@ -3,11 +3,6 @@ import { renderDots, updateClock } from './pomodoro.js';
 
 const tabBtns = document.querySelectorAll('.tab-btn');
 const panels = document.querySelectorAll('.panel');
-const beepBtn = document.querySelector('.beep-btn');
-
-beepBtn.addEventListener('click', () => {
-  beep();
-});
 
 tabBtns.forEach(btn => {
   btn.addEventListener('click', () => {
