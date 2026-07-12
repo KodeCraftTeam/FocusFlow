@@ -1,0 +1,402 @@
+:root {
+      --bg: #14171A;
+      --surface: #1B1F23;
+      --surface-2: #20252A;
+      --text: #E4E1D8;
+      --text-muted: #7C8288;
+      --text-faint: #4A4F54;
+      --accent: #8FA98A;
+      --accent-dim: #5C7259;
+      --accent-bright: #A8C4A2;
+      --border: #262B30;
+      --warn: #C98B5E;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Mono', 'JetBrains Mono', 'Courier New', monospace;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 44px 20px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 560px;
+    }
+
+    header {
+      margin-bottom: 22px;
+    }
+
+    .title {
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      font-weight: 600;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .title .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-top: 6px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-faint);
+      font-family: inherit;
+      font-size: 12.5px;
+      padding: 9px 4px;
+      margin-right: 20px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.15s ease;
+    }
+
+    .tab-btn::before {
+      content: "> ";
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-muted);
+    }
+
+    .tab-btn.active {
+      color: var(--accent-bright);
+    }
+
+    .tab-btn.active::before {
+      opacity: 1;
+    }
+
+    .tab-btn.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+      animation: fadein 0.2s ease;
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+        transform: translateY(2px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      transition: border-color 0.15s ease;
+    }
+
+    .input-row:focus-within {
+      border-color: var(--accent-dim);
+    }
+
+    .prompt-char {
+      color: var(--accent);
+      margin-right: 10px;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    input[type="text"]::placeholder {
+      color: var(--text-faint);
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 11px 14px;
+      background: var(--surface);
+      border-radius: 4px;
+      transition: opacity 0.3s ease, background 0.15s ease;
+    }
+
+    .item:hover {
+      background: var(--surface-2);
+    }
+
+    .checkbox {
+      width: 15px;
+      height: 15px;
+      border: 1.5px solid var(--text-faint);
+      border-radius: 3px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .checkbox:hover {
+      border-color: var(--accent);
+    }
+
+    .item.done .checkbox {
+      background: var(--accent-dim);
+      border-color: var(--accent-dim);
+    }
+
+    .item-text {
+      flex: 1;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .item.done .item-text {
+      color: var(--text-faint);
+      text-decoration: line-through;
+    }
+
+    .item.done .item-text::before {
+      content: "// ";
+      color: var(--text-faint);
+    }
+
+    .timestamp {
+      font-size: 10.5px;
+      color: var(--text-faint);
+      margin-top: 3px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .del-btn {
+      background: none;
+      border: none;
+      color: var(--text-faint);
+      font-size: 13px;
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 0 2px;
+      line-height: 1;
+      margin-top: 2px;
+      opacity: 0;
+      transition: opacity 0.15s ease, color 0.15s ease;
+    }
+
+    .item:hover .del-btn {
+      opacity: 1;
+    }
+
+    .del-btn:hover {
+      color: var(--warn);
+    }
+
+    .empty {
+      color: var(--text-faint);
+      font-size: 13px;
+      padding: 20px 14px;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    footer {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .count {
+      font-size: 11px;
+      color: var(--text-faint);
+    }
+
+    .clear-btn {
+      background: none;
+      border: none;
+      color: var(--text-faint);
+      font-size: 11px;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: color 0.15s ease;
+    }
+
+    .clear-btn:hover {
+      color: var(--text-muted);
+    }
+
+    .pomo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0 8px;
+    }
+
+    .pomo-mode {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 14px;
+    }
+
+    .pomo-mode.focus {
+      color: var(--accent-bright);
+    }
+
+    .pomo-mode.break {
+      color: var(--warn);
+    }
+
+    .pomo-clock {
+      font-size: 64px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 22px;
+    }
+
+    .pomo-dots {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .pomo-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .pomo-dot.filled {
+      background: var(--accent);
+    }
+
+    .pomo-controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .pomo-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      padding: 10px 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .pomo-btn:hover {
+      border-color: var(--accent-dim);
+      background: var(--surface-2);
+    }
+
+    .pomo-btn.primary {
+      background: var(--accent-dim);
+      border-color: var(--accent-dim);
+      color: #10130F;
+      font-weight: 600;
+    }
+
+    .pomo-btn.primary:hover {
+      background: var(--accent);
+    }
+
+    .pomo-settings {
+      display: flex;
+      gap: 18px;
+      font-size: 11px;
+      color: var(--text-faint);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .pomo-settings label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pomo-settings input {
+      width: 38px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 11px;
+      padding: 3px 5px;
+      border-radius: 4px;
+      text-align: center;
+    }
