@@ -35,6 +35,8 @@ Cada lista (tareas, aparcadero) guarda su estado en `localStorage` bajo su propi
 
 ## Despliegue
 
+<a href="https://kodecraftteam.github.io/FocusFlow/" >FocusFlow<a>
+
 `https://kodecraftteam.github.io/FocusFlow/`
 
 Pensada para GitHub Pages: sin build step, sin dependencias, sirve directo desde la raíz del repo.
