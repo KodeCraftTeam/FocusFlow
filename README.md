@@ -1,9 +1,9 @@
 # FocusFlow
 
 App web simple de productividad: tareas del día, un "aparcadero" de ideas sueltas, y temporizador Pomodoro. Todo en HTML/CSS/JS puro, sin frameworks ni build step.
-```
-<a href="https://kodecraftteam.github.io/FocusFlow/">FocusFlow<a>
-```
+
+*<a href="https://kodecraftteam.github.io/FocusFlow/">FocusFlow<a>*
+
 ## Funcionalidades
 
 **Tareas** — lista de pendientes del día. Marcar como hecha, borrar, contador de pendientes.
