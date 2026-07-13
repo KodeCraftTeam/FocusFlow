@@ -82,17 +82,36 @@ function setMode(newMode) {
 function beep() {
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.frequency.value = 660;
-    gain.gain.setValueAtTime(0.051, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.95, ctx.currentTime + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.051, ctx.currentTime + 0.5);
-    osc.start();
-    osc.stop(ctx.currentTime + 0.55);
+    const notes = [880, 660, 880];
+    notes.forEach((freq, i) => {
+      const start = ctx.currentTime + i * 0.22;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.001, start);
+      gain.gain.exponentialRampToValueAtTime(0.9, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, start + 0.18);
+      osc.start(start);
+      osc.stop(start + 0.2);
+    });
   } catch (e) { }
+}
+
+let alarmInterval = null;
+
+function startAlarm() {
+  beep();
+  alarmInterval = setInterval(beep, 1000);
+  document.addEventListener('click', stopAlarm, { once: true });
+}
+
+function stopAlarm() {
+  if (alarmInterval) {
+    clearInterval(alarmInterval);
+    alarmInterval = null;
+  }
 }
 
 function tick() {
@@ -100,7 +119,7 @@ function tick() {
     secondsLeft--;
     updateClock();
   } else {
-    beep();
+    startAlarm();
     if (mode === 'focus') {
       cyclesCompleted++;
       renderDots();

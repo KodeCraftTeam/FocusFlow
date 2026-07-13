@@ -12,6 +12,10 @@ tabBtns.forEach(btn => {
     document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
     if (btn.dataset.tab === 'capture') document.getElementById('captureInput').focus();
     if (btn.dataset.tab === 'tasks') document.getElementById('taskInput').focus();
+    if (btn.dataset.tab === 'pomodoro') {
+      renderDots();
+      updateClock();
+    }
   });
 });
 
@@ -40,5 +44,3 @@ createList({
   allowDelete: true
 });
 
-renderDots();
-updateClock();
