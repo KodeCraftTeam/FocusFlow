@@ -20,6 +20,7 @@
     <div class="tabs">
       <button class="tab-btn active" data-tab="tasks">Personal</button>
       <button class="tab-btn" data-tab="work">Trabajo</button>
+      <button class="tab-btn" data-tab="enterprise">Empresa</button>
       <button class="tab-btn" data-tab="university">Universidad</button>
       <button class="tab-btn " data-tab="occurrence">Ocurrencia</button>
       <button class="tab-btn" data-tab="pomodoro">pomodoro</button>
@@ -48,6 +49,19 @@
         <button class="clear-btn" id="workClear">limpiar completados</button>
       </footer>
     </div>
+
+    <div class="panel" id="panel-enterprise">
+      <div class="input-row">
+        <span class="prompt-char">&gt;</span>
+        <input type="text" id="enterpriseInput" placeholder="lo que se te acaba de ocurrir..." />
+      </div>
+      <div class="list" id="enterpriseList"></div>
+      <footer>
+        <span class="count" id="enterpriseCount"></span>
+        <button class="clear-btn" id="enterpriseClear">limpiar completados</button>
+      </footer>
+    </div>
+
 
     <div class="panel" id="panel-university">
       <div class="input-row">

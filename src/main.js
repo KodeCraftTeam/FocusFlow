@@ -59,6 +59,18 @@ createList({
 });
 
 createList({
+  storageKey: 'empresa:items',
+  listEl: document.getElementById('enterpriseList'),
+  inputEl: document.getElementById('enterpriseInput'),
+  countEl: document.getElementById('enterpriseCount'),
+  clearBtn: document.getElementById('enterpriseClear'),
+  emptyText: 'Nada agregado. Cuando algo se te ocurra, anótalo aquí.',
+  singular: 'pendiente',
+  plural: 'pendientes',
+  allowDelete: true
+});
+
+createList({
   storageKey: 'universidad:items',
   listEl: document.getElementById('universityList'),
   inputEl: document.getElementById('universityInput'),
