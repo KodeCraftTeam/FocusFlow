@@ -10,8 +10,10 @@ tabBtns.forEach(btn => {
     panels.forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
-    if (btn.dataset.tab === 'capture') document.getElementById('captureInput').focus();
     if (btn.dataset.tab === 'tasks') document.getElementById('taskInput').focus();
+    if (btn.dataset.tab === 'work') document.getElementById('workInput').focus();
+    if (btn.dataset.tab === 'university') document.getElementById('universityInput').focus();
+    if (btn.dataset.tab === 'occurrence') document.getElementById('occurrenceInput').focus();
     if (btn.dataset.tab === 'pomodoro') {
       renderDots();
       updateClock();
@@ -34,11 +36,35 @@ createList({
 
 createList({
   storageKey: 'aparcadero:items',
-  listEl: document.getElementById('captureList'),
-  inputEl: document.getElementById('captureInput'),
-  countEl: document.getElementById('captureCount'),
-  clearBtn: document.getElementById('captureClear'),
-  emptyText: 'Nada agregado. Cuando algo te distraiga, anótalo aquí.',
+  listEl: document.getElementById('occurrenceList'),
+  inputEl: document.getElementById('occurrenceInput'),
+  countEl: document.getElementById('occurrenceCount'),
+  clearBtn: document.getElementById('occurrenceClear'),
+  emptyText: 'Nada agregado. Cuando algo se te ocurra, anótalo aquí.',
+  singular: 'pendiente',
+  plural: 'pendientes',
+  allowDelete: true
+});
+
+createList({
+  storageKey: 'trabajo:items',
+  listEl: document.getElementById('workList'),
+  inputEl: document.getElementById('workInput'),
+  countEl: document.getElementById('workCount'),
+  clearBtn: document.getElementById('workClear'),
+  emptyText: 'Nada agregado. Cuando algo se te ocurra, anótalo aquí.',
+  singular: 'pendiente',
+  plural: 'pendientes',
+  allowDelete: true
+});
+
+createList({
+  storageKey: 'universidad:items',
+  listEl: document.getElementById('universityList'),
+  inputEl: document.getElementById('universityInput'),
+  countEl: document.getElementById('universityCount'),
+  clearBtn: document.getElementById('universityClear'),
+  emptyText: 'Nada agregado. Cuando algo se te ocurra, anótalo aquí.',
   singular: 'pendiente',
   plural: 'pendientes',
   allowDelete: true

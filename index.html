@@ -18,8 +18,10 @@
     </header>
 
     <div class="tabs">
-      <button class="tab-btn active" data-tab="tasks">tareas</button>
-      <button class="tab-btn " data-tab="capture">FocusFlow</button>
+      <button class="tab-btn active" data-tab="tasks">Personal</button>
+      <button class="tab-btn" data-tab="work">Trabajo</button>
+      <button class="tab-btn" data-tab="university">Universidad</button>
+      <button class="tab-btn " data-tab="occurrence">Ocurrencia</button>
       <button class="tab-btn" data-tab="pomodoro">pomodoro</button>
     </div>
 
@@ -35,15 +37,39 @@
       </footer>
     </div>
 
-    <div class="panel " id="panel-capture">
+    <div class="panel" id="panel-work">
       <div class="input-row">
         <span class="prompt-char">&gt;</span>
-        <input type="text" id="captureInput" placeholder="lo que se te acaba de ocurrir..." />
+        <input type="text" id="workInput" placeholder="lo que se te acaba de ocurrir..." />
       </div>
-      <div class="list" id="captureList"></div>
+      <div class="list" id="workList"></div>
       <footer>
-        <span class="count" id="captureCount"></span>
-        <button class="clear-btn" id="captureClear">limpiar completados</button>
+        <span class="count" id="workCount"></span>
+        <button class="clear-btn" id="workClear">limpiar completados</button>
+      </footer>
+    </div>
+
+    <div class="panel" id="panel-university">
+      <div class="input-row">
+        <span class="prompt-char">&gt;</span>
+        <input type="text" id="universityInput" placeholder="lo que se te acaba de ocurrir..." />
+      </div>
+      <div class="list" id="universityList"></div>
+      <footer>
+        <span class="count" id="universityCount"></span>
+        <button class="clear-btn" id="universityClear">limpiar completados</button>
+      </footer>
+    </div>
+
+    <div class="panel " id="panel-occurrence">
+      <div class="input-row">
+        <span class="prompt-char">&gt;</span>
+        <input type="text" id="occurrenceInput" placeholder="lo que se te acaba de ocurrir..." />
+      </div>
+      <div class="list" id="occurrenceList"></div>
+      <footer>
+        <span class="count" id="occurrenceCount"></span>
+        <button class="clear-btn" id="occurrenceClear">limpiar completados</button>
       </footer>
     </div>
 
