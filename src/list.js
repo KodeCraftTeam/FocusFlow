@@ -28,7 +28,7 @@ export function createList({ storageKey, listEl, inputEl, countEl, clearBtn, emp
       empty.textContent = emptyText;
       listEl.appendChild(empty);
     } else {
-      items.forEach(item => {
+      items.reverse().forEach(item => {
         const el = document.createElement('div');
         el.className = 'item' + (item.done ? ' done' : '');
         el.innerHTML = `
